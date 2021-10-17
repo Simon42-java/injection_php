@@ -26,6 +26,7 @@
     //pas de requete preparer il n'y a pas de verification de requete
     $sth = $bdd->query($sql);
     var_dump($sql);
+    return $sth->fetch();
     }
 
     function RequeteB($id, $prenom, $nom, $email){
