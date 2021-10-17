@@ -6,7 +6,7 @@
             function __construct(){
             //essay de connexion a bdd
             try{
-                $this->bdd = new PDO("mysql:dbname=bddinjection;host:127.0.0.1","root","POKEMON17");
+                $this->bdd = new PDO("mysql:dbname=bddinjection;host:127.0.0.1","root","Simon59300sql");
                 echo 'connexion ok ';
             }
             catch(PDOException $e){
