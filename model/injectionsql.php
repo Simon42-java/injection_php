@@ -19,23 +19,20 @@
                 return $this->bdd;
             }
 
-    //requête qui peut provoquer une injection sql
-    //car il n'y a pas de verification n'y de préparation de requete 
-    //il execute directement la requete
-    function getRequeteNonSecurise($nom){
+    //Mauvaise requête
+    function RequeteM($nom){
     $nom = "pluchart";
     $sql = ("select ID_USER, Prenom, Nom, Email from user u where Nom = '%s', $nom");
+    //pas de requete preparer il n'y a pas de verification de requete
     $sth = $bdd->query($sql);
     var_dump($sql);
     }
 
-    function getRequeteSecurise($id, $prenom, $nom, $email){
-    //requête qui serra meilleur et plus sécurisé 
-    // il y a une verification et un préparation de la requete
+    function RequeteB($id, $prenom, $nom, $email){
+    // Bonne requête
     $sql = "select ID_USER, Prenom, Nom, Email from user u where Nom = '%s', $nom";
-    //préparation de la requete
+    //requete preparer et verfication
     $req = $bdd->prepare($sql);
-    //verifcation de la requete
     $result = $req->execute(array(':ID_USER' => $id, 
                                   ':Prenom' => $prenom,
                                   ':Nom' => $nom,

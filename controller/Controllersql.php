@@ -14,8 +14,8 @@ function __construct($id, $prenom, $nom, $email) {
 
 $bdd = new bdd();
 
-$Nom = $bdd->getRequeteNonSecurise($id, $prenom, $nom, $email);
+$Nom = $bdd->RequeteB($id, $prenom, $nom, $email);
 
-//$Nomuser = $bdd->getRequeteSecurise($nom);
+//$Nomuser = $bdd->RequeteM($nom);
 
 ?>
