@@ -21,8 +21,8 @@
 
     //Mauvaise requête
     function RequeteM($nom){
-    $nom = "pluchart";
-    $sql = ("select ID_USER, Prenom, Nom, Email from user u where Nom = '%s', $nom");
+    $nom = "Basserue";
+    $sql = ("select ID_USER, Prenom, Nom, Email from user u where Nom = '%s'.$nom");
     //pas de requete preparer il n'y a pas de verification de requete
     $sth = $bdd->query($sql);
     var_dump($sql);
@@ -30,7 +30,7 @@
 
     function RequeteB($id, $prenom, $nom, $email){
     // Bonne requête
-    $sql = "select ID_USER, Prenom, Nom, Email from user u where Nom = '%s', $nom";
+    $sql = "select ID_USER, Prenom, Nom, Email from user u where Nom = ?";
     //requete preparer et verfication
     $req = $bdd->prepare($sql);
     $result = $req->execute(array(':ID_USER' => $id, 
